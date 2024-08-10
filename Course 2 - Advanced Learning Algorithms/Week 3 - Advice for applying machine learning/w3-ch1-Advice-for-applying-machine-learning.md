@@ -88,15 +88,22 @@ Say, we have $10$ data points here:
 
 -   To train our model, we'll fit the _training_ dataset with the _polynomial_ features as shown above and minimize it's cost with _cost function_ $J(\vec{w}, b)$.
 
-$$J(\vec{w}, b) = \frac{1}{2m_{train}}\sum^{m_{train}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)}\right)^2 + \frac{\lambda}{2m_{train}}\sum^n_{j=1}w^2_j$$
+$$
+J(\vec{w}, b) = \frac{1}{2m_{\text{train}}} \sum_{i=1}^{m_{\text{train}}} \left(f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)}\right)^2 + \frac{\lambda}{2m_{\text{train}}} \sum_{j=1}^{n} w_j^2
+$$
 
 -   To find the _training_ error, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{train}$ training examples, except we won't use _regularization_ term.
 
-$$J_{train}(\vec{w}, b) = \frac{1}{2m_{train}}\left[\sum^{m_{train}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{train}) - y^{(i)}_{train}\right)^2\right]$$
+$$
+J_{\text{train}}(\vec{w}, b) = \frac{1}{2m_{\text{train}}} \left[ \sum_{i=1}^{m_{\text{train}}} \left(f_{\vec{w}, b}(\vec{x}^{(i)}_{\text{train}}) - y^{(i)}_{\text{train}}\right)^2 \right]
+$$
 
 -   And, To compute the _test_ error, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{test}$ testing examples as above.
 
-$$J_{test}(\vec{w}, b) = \frac{1}{2m_{test}}\left[\sum^{m_{test}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{test}) - y^{(i)}_{test}\right)^2\right]$$
+$$
+J_{\text{test}}(\vec{w}, b) = \frac{1}{2m_{\text{test}}} \left[ \sum_{i=1}^{m_{\text{test}}} \left(f_{\vec{w}, b}(\vec{x}^{(i)}_{\text{test}}) - y^{(i)}_{\text{test}}\right)^2 \right]
+$$
+
 
 -   So, as we saw that, on _training_ dataset, our model performs well.
 
