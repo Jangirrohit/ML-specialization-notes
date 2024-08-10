@@ -95,13 +95,13 @@ $$
 -   To find the _training_ error, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{train}$ training examples, except we won't use _regularization_ term.
 
 $$
-J_{\text{train}}(\vec{w}, b) = \frac{1}{2m_{\text{train}}} \left[ \sum_{i=1}^{m_{\text{train}}} \left(f_{\vec{w}, b}(\vec{x}^{(i)}_{\text{train}}) - y^{(i)}_{\text{train}}\right)^2 \right]
+J_{\text{train}}(\vec{w}, b) = \frac{1}{2m_{\text{train}}}\left[\sum_{i=1}^{m_{\text{train}}}\left(f_{\vec{w}, b}(\vec{x_{\text{train}}}^{(i)}) - y_{\text{train}}^{(i)}\right)^2\right]
 $$
 
 -   And, To compute the _test_ error, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{test}$ testing examples as above.
 
 $$
-J_{\text{test}}(\vec{w}, b) = \frac{1}{2m_{\text{test}}} \left[ \sum_{i=1}^{m_{\text{test}}} \left(f_{\vec{w}, b}(\vec{x}^{(i)}_{\text{test}}) - y^{(i)}_{\text{test}}\right)^2 \right]
+J_{\text{test}}(\vec{w}, b) = \frac{1}{2m_{\text{test}}} \left[ \sum_{i=1}^{m_{\text{test}}} \left(f_{\vec{w}, b}(\vec{x_{\text{test}}}^{(i)}) - y_{\text{test}}^{(i)}\right)^2 \right]
 $$
 
 
@@ -128,11 +128,12 @@ On _classification_ problem, we will do same as above, minimzing the _cost funct
 
 -   For computing error on _training dataset_, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{train}$ training examples, except we won't use _regularization_ term.
 
-    J_train(w, b) = - (1/m_train) * sum(y_train(i) * log(f(w, b)(x_train(i))) + (1 - y_train(i)) * log(1 - f(w, b)(x_train(i))))
+    $$J_{\text{train}}(\vec{w}, b) = -\frac{1}{m_{\text{train}}}\sum_{i=1}^{m_{\text{train}}}\left[y_{\text{train}}^{(i)}\log\left( f_{\vec{w}, b}(\vec{x_{\text{train}}}^{(i)})\right) +\left(1 - y_{\text{train}}^{(i)}\right)\log\left(1 - f_{\vec{w}, b}(\vec{x_{\text{train}}}^{(i)})\right)\right]$$
+
 
 -   For computing error on _testing dataset_, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{test}$ testing examples as above.
 
-$$J_{test}(\vec{w}, b) = -\frac{1}{m_{test}}\sum^{m_{test}}_{i=1}\left[y^{(i)}_{test}\log\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{test}\right) + \left(1 - y^{(i)}_{test}\right)\log\left(1 - f_{\vec{w}, b}(x^{(i)}_{test}\right)\right]$$
+$$J_{test}(\vec{w}, b) = -\frac{1}{m_{test}}\sum_{i=1}^{m_{\text{test}}}\left[y_{test}^{(i)}\log\left(f_{\vec{w}, b}(\vec{x_{test}}^{(i)}\right) + \left(1 - y_{test}^{(i)}\right)\log\left(1 - f_{\vec{w}, b}(x_{test}^{(i)}\right)\right]$$
 
 -   But, there's another way to find error on _training_ and _testing_ dataset is to find out the **fraction** of the _test_ and _train_ set which is miss-classified.
 
@@ -202,13 +203,13 @@ _Cross-validation_ is also known as _validation_, _development_ or _dev_ set.
 And, we can measure _cost_ error on all $3$ datasets:
 
 1. _Training_ error $J_{train}(\vec{w}, b)$
-   $$J_{train}(\vec{w}, b) = \frac{1}{2m_{train}}\left[\sum^{m_{train}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{train}) - y^{(i)}_{train}\right)^2\right]$$
+   $$J_{train}(\vec{w}, b) = \frac{1}{2m_{train}}\left[\sum_{i=1}^{m_{train}}\left(f_{\vec{w}, b}(\vec{x_{train}}^{(i)}) - y_{train}^{(i)}\right)^2\right]$$
 
 2. _Cross-validation_ error $J_{cv}(\vec{w}, b)$
-   $$J_{cv}(\vec{w}, b) = \frac{1}{2m_{cv}}\left[\sum^{m_{cv}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{cv}) - y^{(i)}_{cv}\right)^2\right]$$
+   $$J_{cv}(\vec{w}, b) = \frac{1}{2m_{cv}}\left[\sum_{i=1}^{m_{cv}}\left(f_{\vec{w}, b}(\vec{x_{cv}}^{(i)}) - y_{cv}^{(i)}\right)^2\right]$$
 
 3. _Testing_ error $J_{test}(\vec{w}, b)$
-   $$J_{test}(\vec{w}, b) = \frac{1}{2m_{test}}\left[\sum^{m_{test}}_{i=1}\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{test}) - y^{(i)}_{test}\right)^2\right]$$
+   $$J_{test}(\vec{w}, b) = \frac{1}{2m_{test}}\left[\sum_{i=1}^{m_{test}}\left(f_{\vec{w}, b}(\vec{x_{test}}^{(i)}) - y_{test}^{(i)}\right)^2\right]$$
 
 So now, we'll use $10$ different models with $10 degree$ of _polynomial_ features:
 
