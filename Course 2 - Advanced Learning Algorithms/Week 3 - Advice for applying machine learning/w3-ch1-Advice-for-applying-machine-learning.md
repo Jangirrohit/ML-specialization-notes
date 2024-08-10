@@ -128,7 +128,7 @@ On _classification_ problem, we will do same as above, minimzing the _cost funct
 
 -   For computing error on _training dataset_, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{train}$ training examples, except we won't use _regularization_ term.
 
-$$J_{train}(\vec{w}, b) = -\frac{1}{m_{train}}\sum^{m_{train}}_{i=1}\left[y^{(i)}_{train}\log\left(f_{\vec{w}, b}(\vec{x}^{(i)}_{train}\right) + \left(1 - y^{(i)}_{train}\right)\log\left(1 - f_{\vec{w}, b}(x^{(i)}_{train}\right)\right]$$
+    J_train(w, b) = - (1/m_train) * sum(y_train(i) * log(f(w, b)(x_train(i))) + (1 - y_train(i)) * log(1 - f(w, b)(x_train(i))))
 
 -   For computing error on _testing dataset_, we'll use same _cost function_ $J(\vec{w}, b)$ on $m_{test}$ testing examples as above.
 
